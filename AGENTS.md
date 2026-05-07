@@ -86,3 +86,55 @@ Tectonic.toml            ← configuração V2
 - Tectonic: https://tectonic-typesetting.github.io/
 - SBC Template: https://www.sbc.org.br/documentos-da-sbc/summary/169-templates-para-artigos-e-capitulos-de-livros/878-modelosparapublicaodeartigos
 - SBGames: https://www.sbgames.org/
+
+## Filosofia de Pipeline (Inspirado no ARS)
+
+> **AI is your copilot, not the pilot.** Este template fornece ferramentas para
+> automatizar o trabalho braçal — compilação, verificação de integridade,
+> formatação — enquanto o pesquisador mantém controle sobre as decisões
+> intelectuais: definição do problema, método, interpretação dos dados,
+> e a frase depois de "Eu argumento que...".
+
+### Estágios do Pipeline
+
+```
+Stage 1: ESCREVER   → editar Artigo.tex + Partes/*.tex
+Stage 2: VERIFICAR  → ./check.sh (integrity gate)
+Stage 3: COMPILAR   → ./build.sh
+Stage 4: REVISAR    → ler PDF, revisar conteúdo
+Stage 5: COMMITAR   → git commit
+```
+
+### Integrity Gate (check.sh)
+
+Antes de cada build, o `check.sh` executa 5 verificações:
+
+| Gate | O que verifica | Severidade |
+|------|---------------|------------|
+| 1 | Arquivos referenciados existem | ERROR |
+| 2 | Metadados sem placeholders | WARNING |
+| 3 | Resumo estruturado (4 campos) | WARNING |
+| 4 | Citações têm entrada no .bib | WARNING |
+| 5 | Encoding UTF-8 válido | ERROR |
+
+### 7 Modos de Falha (adaptado de Lu et al. 2026, *Nature*)
+
+Estas falhas "parecem trabalho competente" mas produzem outputs errados:
+
+1. Referência fantasma — `\cite{}` sem entrada no `.bib`
+2. Figura inexistente — `\includegraphics` apontando para path errado
+3. Label órfã — `\ref{}` sem `\label{}` correspondente
+4. Blank line em argumento — `\n\n` dentro de `\fancyhead{}`
+5. Resumo desestruturado — faltam seções obrigatórias
+6. Metadados placeholder — "XXIII", "Trilha", "Cidade"
+7. Encoding quebrado — bytes UTF-8 inválidos
+
+Documento completo: `.opencode/references/latex-failure-modes.md`
+
+### Qualidade de Escrita
+
+Consulte `.opencode/references/writing-quality-guide.md` para:
+- Padrões de prosa de IA a evitar
+- Checklist de voz autoral
+- Densidade de informação
+- Voz ativa vs passiva no português acadêmico

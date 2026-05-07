@@ -123,3 +123,52 @@ O resumo DEVE conter seções em negrito:
 - Mensagens em português
 - Prefixos: `docs:`, `build:`, `feat:`, `fix:`, `style:`
 - Nunca commitar `build/`
+
+## Qualidade de Escrita (Inspirado no ARS Writing Quality Check)
+
+### Padrões de Prosa de IA — EVITAR
+
+| Padrão | Exemplo Ruim | Alternativa |
+|---------|-------------|-------------|
+| Muleta de transição | "Vale ressaltar que..." | Corte. Vá direto ao ponto. |
+| Falsa humildade | "Este trabalho tenta..." | "Este trabalho investiga..." |
+| Generalização vazia | "Na era digital, a tecnologia..." | Comece com o problema específico. |
+| Enumeração explícita | "Firstly... Secondly... Thirdly..." | Use estrutura de parágrafo. |
+| Passiva empilhada | 3+ frases passivas consecutivas | Máximo 2; alterne com ativa. |
+
+### Densidade de Informação
+
+Regra: se uma frase puder ser removida sem perda de informação, remova-a.
+
+### Checklist Pós-Escrita
+
+- [ ] Cada parágrafo tem UMA ideia central?
+- [ ] Frases variam em comprimento (curta-média-longa)?
+- [ ] Adjetivos com moderação (≤1 por frase)?
+- [ ] Sem mais de 2 "que" consecutivos?
+- [ ] Legível em voz alta?
+
+## Verificação de Integridade Pré-Build (Inspirado no ARS Integrity Gate)
+
+ANTES de compilar, execute:
+
+```bash
+./check.sh          # 5 gates de verificação
+./check.sh --strict # modo CI (warnings viram errors)
+```
+
+Fluxo: `editar → ./check.sh → corrigir → ./build.sh`
+
+## 7 Modos de Falha em Artigos LaTeX (adaptado de Lu et al. 2026)
+
+| # | Modo de Falha | Sintoma | Detection |
+|---|---------------|---------|-----------|
+| 1 | Referência fantasma | `Citation undefined` | `check.sh` Gate 4 |
+| 2 | Figura inexistente | `File 'X' not found` | `check.sh` Gate 1 |
+| 3 | Label órfã | `Reference undefined` | `check.sh` Gate 1 |
+| 4 | Blank line em argumento | `Paragraph ended before` | `check.sh` Gate 5 |
+| 5 | Resumo desestruturado | Faltam seções obrigatórias | `check.sh` Gate 3 |
+| 6 | Metadados placeholder | "XXIII", "Trilha", "Cidade" | `check.sh` Gate 2 |
+| 7 | Encoding quebrado | `Invalid UTF-8 byte` | `check.sh` Gate 5 |
+
+Documento completo: `.opencode/references/latex-failure-modes.md`

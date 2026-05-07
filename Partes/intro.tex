@@ -1,0 +1,12 @@
+\section{Introdução}
+
+Este é um arquivo externo carregado via \verb|\input|.
+Ele demonstra que o Tectonic segue a árvore AST do LaTeX automaticamente,
+sem necessidade de configurar cada arquivo no \texttt{Tectonic.toml}.
+
+O arquivo principal (\texttt{Artigo.tex}) referencia este arquivo com:
+\begin{verbatim}
+\input{Partes/intro}
+\end{verbatim}
+
+E o Tectonic resolve a dependência em tempo de compilação.

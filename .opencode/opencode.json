@@ -3,8 +3,9 @@
   "default_agent": "latex-author",
   "instructions": [
     "AGENTS.md",
-    "README.md",
-    ".opencode/agents/latex-author.md"
+    ".opencode/agents/latex-author.md",
+    ".opencode/references/latex-failure-modes.md",
+    ".opencode/references/writing-quality-guide.md"
   ],
   "agent": {
     "latex-author": {
@@ -16,6 +17,23 @@
         "search": true,
         "read": true
       }
+    }
+  },
+  "command": {
+    "build": {
+      "template": "Execute ./build.sh --clean e reporte o resultado. Se houver erros de compilação, leia build/Artigo.log, identifique a causa e sugira correções. Se compilar com sucesso, confirme o caminho do PDF gerado.",
+      "description": "Compilar artigo com Tectonic (build.sh --clean)",
+      "agent": "latex-author"
+    },
+    "check": {
+      "template": "Execute ./check.sh --strict e reporte o resultado de cada um dos 5 gates. Se houver erros (arquivos faltando, encoding quebrado) ou warnings (placeholders, citações sem entrada), corrija-os antes de reportar sucesso.",
+      "description": "Verificar integridade do artigo (5 gates + strict mode)",
+      "agent": "latex-author"
+    },
+    "clean": {
+      "template": "Execute ./clean.sh --all para remover build/ e cache Tectonic. Confirme os diretórios/arquivos removidos.",
+      "description": "Limpar build/ e cache Tectonic",
+      "agent": "latex-author"
     }
   },
   "lsp": {

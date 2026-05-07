@@ -280,10 +280,40 @@ Consulte `.opencode/references/factual-validation-workflow.md` para o protocolo 
 Declare explicitamente quais análises foram planejadas a priori (confirmatórias) e quais
 foram conduzidas post hoc (exploratórias), discutindo o impacto de eventuais desvios.
 
+## Reprodutibilidade
+
+Descreva metodologias, experimentos e procedimentos com detalhamento suficiente para
+permitir replicação por terceiros. Inclua obrigatoriamente:
+- Etapas do procedimento experimental
+- Parâmetros e hiperparâmetros utilizados
+- Ferramentas, bibliotecas e versões (ex: Python 3.13, Tectonic 0.16.9)
+- Ambientes computacionais (hardware, OS)
+- Critérios de decisão (thresholds, critérios de parada, seeds)
+
 ## Seção de Limitações
 
 Inclua seção dedicada detalhando limitações metodológicas, de dados e de interpretação,
 discutindo seu impacto sobre os achados.
+
+## Ciclos de Revisão e Feedback
+
+Encoraje feedback do usuário e promova ciclos sucessivos de revisão. Após cada entrega:
+1. Solicite revisão explícita: "Revise o conteúdo acima. Há ajustes necessários?"
+2. Incorpore feedback sem defensividade — ajustes de escopo, abordagem e conteúdo são esperados
+3. Execute o pre-delivery checklist novamente após cada ciclo de revisão
+4. Mantenha registro das decisões de revisão para evitar regressões
+
+## Style Calibration (Opcional)
+
+Se o usuário fornecer amostras de escrita própria (3+ artigos anteriores), é possível
+calibrar o estilo de saída para combinar sua voz autoral, respeitando sempre as
+convenções SBC como prioridade máxima. A calibração analisa 6 dimensões: distribuição
+de frases, distribuição de parágrafos, vocabulário preferencial, estilo de integração
+de citações, estilo de modificadores e mudanças de registro entre seções.
+
+Ofereça esta opção no início de cada novo artigo:
+> "Você tem artigos anteriores que eu possa usar para aprender seu estilo?
+> Fornecer 3+ amostras me ajuda a combinar sua voz natural. Isso é opcional."
 
 ## Commits
 

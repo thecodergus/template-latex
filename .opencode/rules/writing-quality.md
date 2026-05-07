@@ -78,7 +78,16 @@ Regra: se uma frase puder ser removida sem perda de informação, remova-a.
 ### Coerência e Fluxo
 - Progressão conhecido-novo: inicie unidades com informação estabelecida, depois introduza novo conteúdo
 - Forneça parágrafos-ponte no fim de cada seção (sintetiza o que foi dito + antecipa próximo)
-- Use conectivos específicos por tipo de relação (adição, contraste, causa, conclusão)
+- Use conectivos específicos por tipo de relação:
+
+| Relação | Conectivos (pt-BR) |
+|---------|-------------------|
+| Adição | Além disso, Adicionalmente, Também |
+| Contraste | Entretanto, Todavia, Por outro lado, Em contrapartida |
+| Causa | Portanto, Consequentemente, Por conseguinte, Assim |
+| Conclusão | Dessa forma, Em suma, Diante do exposto |
+| Exemplificação | Por exemplo, Em particular, Especificamente |
+| Ênfase | De fato, Ressalte-se que, Cabe destacar |
 
 ### Paragrafação
 - Parágrafos de 4-8 linhas (~60-120 palavras)

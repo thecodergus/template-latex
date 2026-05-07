@@ -32,6 +32,9 @@ clean.sh                 ← limpar build/ e cache Tectonic
 Tectonic.toml            ← configuração V2
 .vscode/                 ← VS Code settings + LaTeX Workshop
 .opencode/               ← AI agent config (OpenCode)
+  agents/latex-author.md ← agente principal
+  rules/                 ← 7 regras condicionais (globs + keywords)
+  references/            ← 5 referências always-loaded
 ```
 
 ## Convenções
@@ -56,6 +59,14 @@ Tectonic.toml            ← configuração V2
 ./watch.sh              # hot reload
 ./clean.sh              # limpar build/
 ./clean.sh --all        # limpar build/ + cache Tectonic
+```
+
+### Slash Commands (OpenCode)
+```
+/build      → compilar com build.sh --clean, analisar .log se erro
+/check      → verificar integridade (5 gates + strict mode)
+/clean      → limpar build/ e cache Tectonic
+/validate   → validação completa (check.sh + .bib + labels + placeholders)
 ```
 
 ### Tectonic Flags Canônicas
@@ -131,10 +142,11 @@ configurados globalmente no Hermes (`~/.hermes/config.yaml`) com
 
 ```
 Stage 1: ESCREVER   → editar Artigo.tex + Partes/*.tex
-Stage 2: VERIFICAR  → ./check.sh (integrity gate)
-Stage 3: COMPILAR   → ./build.sh
-Stage 4: REVISAR    → ler PDF, revisar conteúdo
-Stage 5: COMMITAR   → git commit
+Stage 2: VERIFICAR  → /check (integrity gate)
+Stage 3: COMPILAR   → /build
+Stage 4: VALIDAR    → /validate (completo: .bib + labels + placeholders)
+Stage 5: REVISAR    → ler PDF, revisar conteúdo
+Stage 6: COMMITAR   → git commit
 ```
 
 ### Integrity Gate (check.sh)
@@ -163,6 +175,33 @@ Estas falhas "parecem trabalho competente" mas produzem outputs errados:
 
 Documento completo: `.opencode/references/latex-failure-modes.md`
 
+## Regras Condicionais (.opencode/rules/)
+
+As regras são carregadas automaticamente quando o contexto dispara os gatilhos
+(globs nos arquivos editados + keywords na conversa):
+
+| Regra | Gatilho | Função |
+|-------|---------|--------|
+| `latex-build.md` | `.tex/.sty/.cls` + build/tectonic | Compilação, flags, verificação pós-build |
+| `latex-citations.md` | `.tex/.bib` + citar/cite | Integridade de citações, proibição `\citeonline`, verificação |
+| `latex-figures-tables.md` | `.tex` + figura/tabela/caption | Legendas analíticas, anotação estatística, precisão quantitativa |
+| `latex-references.md` | `.bib` + referência/bibtex | Formato de chaves, campos obrigatórios, verificação .tex↔.bib |
+| `latex-style.md` | `.sty/.cls/.tex` + estilo/fancyhdr | Template SBC, blank lines, metadados |
+| `pre-build-integrity.md` | check/verificar/validação | Integrity gate obrigatório antes de compilar |
+| `writing-quality.md` | `.tex` + escrever/seção/revisão | Qualidade de escrita, princípios científicos, checklist |
+
+## Referências Always-Loaded (.opencode/references/)
+
+Carregadas em toda sessão do agente `latex-author`:
+
+| Referência | Conteúdo |
+|-----------|----------|
+| `latex-failure-modes.md` | Checklist dos 7 modos de falha com comandos de detecção |
+| `writing-quality-guide.md` | Voz autoral, densidade de informação, ativa vs passiva |
+| `build-integrity-checklist.md` | 6 gates detalhados pré-compilação |
+| `factual-validation-workflow.md` | Pipeline de validação de claims (extração PDF, confronto, verificação online) |
+| `systematic-reading-pipeline.md` | Pipeline P/S/R 6 fases para revisão de literatura |
+
 ### Qualidade de Escrita
 
 Consulte `.opencode/references/writing-quality-guide.md` para:
@@ -170,3 +209,18 @@ Consulte `.opencode/references/writing-quality-guide.md` para:
 - Checklist de voz autoral
 - Densidade de informação
 - Voz ativa vs passiva no português acadêmico
+
+### Validação Factual
+
+Consulte `.opencode/references/factual-validation-workflow.md` para:
+- Extração e confronto de claims contra PDFs fonte
+- Verificação bibliográfica online (Semantic Scholar)
+- Correção de discrepâncias
+
+### Leitura Sistemática
+
+Consulte `.opencode/references/systematic-reading-pipeline.md` para:
+- Template P/S/R por paper
+- Matriz cross-paper
+- Gap analysis
+- Geração de tabela comparativa LaTeX

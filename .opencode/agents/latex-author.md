@@ -1,7 +1,6 @@
 ---
 description: Especialista em artigos LaTeX acadêmicos — template SBC/SBGames, engine Tectonic, normas de escrita científica
 mode: primary
-model: null
 tools:
   read: true
   write: true

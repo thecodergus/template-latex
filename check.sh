@@ -96,7 +96,7 @@ INFO_TEX="sbgames_info.tex"
 
 if [ -f "$INFO_TEX" ]; then
     ph_found=0
-    for ph in "XXIII" "Trilha" "Cidade"; do
+    for ph in "XXIII" "Trilha" "Cidade" "Informe a Trilha" "Cidade/UF" "20XX" "Edição (Romano)"; do
         if grep -q "$ph" "$INFO_TEX" 2>/dev/null; then
             warn "Placeholder '$ph' em $INFO_TEX (esperado em template)"
             ph_found=1

@@ -75,5 +75,25 @@
       "command": ["taplo", "lsp", "stdio"],
       "extensions": [".toml"]
     }
+  },
+  "mcp": {
+    "dblp": {
+      "type": "local",
+      "command": ["mcp-dblp"],
+      "enabled": true
+    },
+    "crossref": {
+      "type": "local",
+      "command": ["crossref-cite-mcp"],
+      "enabled": true,
+      "environment": {
+        "CROSSREF_EMAIL": "gustavo.michels.de.camargo@gmail.com"
+      }
+    },
+    "git": {
+      "type": "local",
+      "command": ["mcp-server-git"],
+      "enabled": true
+    }
   }
 }

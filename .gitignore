@@ -1,0 +1,27 @@
+# Build artifacts
+build/
+
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.brf
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# Editor temp files
+*.swp
+*.swo
+*~
+\#*\#
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+[doc]
+name = "template-latex"
+bundle = ""
+
+[doc.metadata]
+# title = ""
+# author = ""
+# year = 2026
+
+[[output]]
+name = "pdf"
+type = "pdf"
+tex_format = "latex"
+inputs = ["Artigo.tex"]
+shell_escape = false
+synctex = false

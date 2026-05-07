@@ -1,0 +1,49 @@
+{
+  "latex-workshop.latex.recipe.default": "tectonic",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.auxDir": "%DIR%/build",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.synctex.synctexjs.enabled": true,
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind",
+    "*.lof", "*.lot", "*.out", "*.toc", "*.acn",
+    "*.acr", "*.alg", "*.glg", "*.glo", "*.gls",
+    "*.fls", "*.fdb_latexmk", "*.snm", "*.nav",
+    "*.xdv", "*.synctex.gz", "*.log", "*.thm"
+  ],
+  "latex-workshop.latex.watch.files.ignore": [
+    "**/build/**"
+  ],
+  "latex-workshop.latex.autoBuild.onSave.files.ignore": [],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "tectonic",
+      "tools": ["tectonic"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "tectonic",
+      "command": "tectonic",
+      "args": [
+        "%DOC%",
+        "-o", "%DIR%/build",
+        "-k",
+        "--keep-logs",
+        "-Z", "paper-size=a4",
+        "--synctex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.rootFile.indicator": "%WORKSPACE_FOLDER%/Artigo.tex",
+  "files.associations": {
+    "*.sty": "tex",
+    "*.cls": "tex",
+    "*.bst": "tex",
+    "*.bib": "bibtex"
+  }
+}

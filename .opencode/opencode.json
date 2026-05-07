@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "latex-author",
+  "instructions": [
+    "AGENTS.md",
+    "README.md",
+    ".opencode/agents/latex-author.md"
+  ],
+  "agent": {
+    "latex-author": {
+      "description": "Especialista em escrita e compilação de artigos LaTeX com template SBC/SBGames e engine Tectonic",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "search": true,
+        "read": true
+      }
+    }
+  }
+}

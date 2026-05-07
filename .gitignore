@@ -16,6 +16,9 @@ build/
 *.fdb_latexmk
 *.xdv
 
+# OpenCode runtime (mas NÃO os agents/rules — esses são commitados)
+.opencode/node_modules/
+
 # Editor temp files
 *.swp
 *.swo

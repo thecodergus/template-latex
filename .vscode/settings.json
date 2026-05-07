@@ -1,4 +1,8 @@
 {
+  "$schema": "vscode://schemas/settings/project",
+
+  "────────────────────────────────────────────────────": "LaTeX Workshop + Tectonic",
+
   "latex-workshop.latex.recipe.default": "tectonic",
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.latex.outDir": "%DIR%/build",
@@ -40,10 +44,152 @@
     }
   ],
   "latex-workshop.latex.rootFile.indicator": "%WORKSPACE_FOLDER%/Artigo.tex",
+  "latex-workshop.bibtex-format.tab": "  ",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.intellisense.citation.label": "bibtex",
+  "latex-workshop.intellisense.citation.backend": "biblatex",
+  "latex-workshop.message.latexlog.exclude": [
+    ".*inputenc package ignored with utf8 based engines.*",
+    ".*Invalid UTF-8 byte.*algorithmic.sty.*"
+  ],
+  "latex-workshop.hover.preview.mathjax.extensions": [
+    "boldsymbol", "ams"
+  ],
+
+  "────────────────────────────────────────────────────": "Spell Check (cspell)",
+
+  "cSpell.enabled": true,
+  "cSpell.language": "en,pt-BR,latex",
+  "cSpell.enableFiletypes": ["tex", "latex", "bibtex", "markdown"],
+  "cSpell.words": [
+    "Tectonic",
+    "Tectonic's",
+    "SBGames",
+    "blumenau",
+    "UDESC",
+    "UFAL",
+    "UFI",
+    "SBC",
+    "mapeada",
+    "personalizando",
+    "recompila",
+    "SyncTeX",
+    "entr",
+    "xdv",
+    "xdvipdfmx",
+    "hifenização",
+    "palavraschave",
+    "resumo",
+    "Sobrenome",
+    "Trilha",
+    "anais",
+    "edicao",
+    "evento",
+    "meu",
+    "para",
+    "artigo",
+    "seu"
+  ],
+  "cSpell.ignorePaths": [
+    "build",
+    ".git",
+    "*.pdf",
+    "*.jpg",
+    "*.png",
+    "*.synctex.gz",
+    "*.xdv",
+    "*.log",
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.toc",
+    "*.lof",
+    "*.lot",
+    "*.brf",
+    "*.fls"
+  ],
+  "cSpell.diagnosticLevel": "Information",
+
+  "────────────────────────────────────────────────────": "File Nesting",
+
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "Artigo.tex": "Artigo.aux, Artigo.log, Artigo.out, Artigo.toc, Artigo.lof, Artigo.lot, Artigo.bbl, Artigo.blg, Artigo.brf, Artigo.synctex.gz, Artigo.fls, Artigo.fdb_latexmk, Artigo.xdv",
+    "*.tex": "${basename}.aux, ${basename}.log, ${basename}.out, ${basename}.toc, ${basename}.lof, ${basename}.lot, ${basename}.bbl, ${basename}.blg, ${basename}.brf, ${basename}.synctex.gz, ${basename}.fls, ${basename}.fdb_latexmk",
+    "Tectonic.toml": "Tectonic.lock",
+    "build.sh": "watch.sh, clean.sh",
+    ".gitignore": ".gitattributes, .gitmodules",
+    "README.md": "LICENSE, CHANGELOG.md"
+  },
+
+  "────────────────────────────────────────────────────": "Editor",
+
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 100,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.renderWhitespace": "selection",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "────────────────────────────────────────────────────": "File Associations",
+
   "files.associations": {
     "*.sty": "tex",
     "*.cls": "tex",
     "*.bst": "tex",
-    "*.bib": "bibtex"
-  }
+    "*.bib": "bibtex",
+    "*.tex": "latex",
+    "Tectonic.toml": "toml"
+  },
+
+  "────────────────────────────────────────────────────": "Language-Specific Overrides",
+
+  "[latex]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false
+  },
+  "[bibtex]": {
+    "editor.wordWrap": "off",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[json][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[shellscript]": {
+    "editor.tabSize": 2
+  },
+
+  "────────────────────────────────────────────────────": "Outros",
+
+  "search.exclude": {
+    "build/**": true,
+    "*.pdf": true,
+    "*.synctex.gz": true
+  },
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "git.autofetch": true,
+  "git.confirmSync": false
 }

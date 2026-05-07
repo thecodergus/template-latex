@@ -186,15 +186,16 @@ else
 fi
 
 if [ "$TOTAL" -eq 0 ]; then
-    echo -e "\n${GREEN}✓ Todos os gates passaram.${NC}"
-    echo -e "  Pronto para compilar: ${CYAN}./build.sh${NC}"
+    printf "\n${GREEN}✓ Todos os gates passaram.${NC}\n"
+    printf "  Pronto para compilar: ${CYAN}./build.sh${NC}\n"
     exit 0
 else
-    echo -e "\n${RED}✗ $ERRORS erro(s), $WARNINGS warning(s)${NC}"
+    printf "\n${RED}✗ $ERRORS erro(s), $WARNINGS warning(s)${NC}\n"
     if [ "$STRICT" = true ]; then
-        echo -e "  Modo estrito: corrija todos antes de compilar."
+        printf "  Modo estrito: corrija todos antes de compilar.\n"
+        exit 1
     else
-        echo -e "  Corrija os erros antes de compilar. Warnings são informativos."
+        printf "  Corrija os erros antes de compilar. Warnings são informativos.\n"
     fi
     [ "$ERRORS" -gt 0 ] && exit 1
     exit 0

@@ -12,6 +12,7 @@ Template para artigos nos formatos SBC e SBGames com ambiente Tectonic.
 | Build | build.sh (V1 CLI), Tectonic.toml (V2 bridge) |
 | Watch | watch.sh (entr) |
 | Editor | VS Code + LaTeX Workshop |
+| LSP | texlab 5.25+ (sintaxe), ltex-ls 16.0+ (gramática pt-BR/en), taplo 0.9+ (TOML) |
 
 ## Estrutura de Arquivos
 
@@ -86,6 +87,37 @@ Tectonic.toml            ← configuração V2
 - Tectonic: https://tectonic-typesetting.github.io/
 - SBC Template: https://www.sbc.org.br/documentos-da-sbc/summary/169-templates-para-artigos-e-capitulos-de-livros/878-modelosparapublicaodeartigos
 - SBGames: https://www.sbgames.org/
+
+## Ferramentas de Edição
+
+### LSPs (Language Servers)
+
+Configurados em `.opencode/opencode.json` → `lsp`:
+
+| LSP | Versão | Extensões | Função |
+|-----|--------|-----------|--------|
+| texlab | 5.25+ | `.tex`, `.sty`, `.cls`, `.bib` | Diagnóstico LaTeX, autocomplete, forward/reverse search, goto definition |
+| ltex-ls | 16.0+ | `.tex`, `.md` | Grammar/spell check multilíngue (pt-BR + en) |
+| taplo | 0.9+ | `.toml` | Validação Tectonic.toml |
+
+Instalação:
+```bash
+# texlab — cargo ou pre-built
+cargo install texlab
+
+# ltex-ls — download pre-built (Java incluso)
+# https://github.com/valentjn/ltex-ls/releases/latest
+# extrair e symlink ltex-ls-*/bin/ltex-ls → ~/.local/bin/ltex-ls
+
+# taplo
+cargo install taplo-cli --locked
+```
+
+### MCPs (Model Context Protocol)
+
+Os MCPs de pesquisa acadêmica (arxiv, semantic-scholar, websearch) são
+configurados globalmente no Hermes (`~/.hermes/config.yaml`) com
+`inherit_mcp_toolsets: true`.  Não precisam ser repetidos no projeto.
 
 ## Filosofia de Pipeline (Inspirado no ARS)
 

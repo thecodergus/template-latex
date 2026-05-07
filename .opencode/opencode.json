@@ -17,5 +17,37 @@
         "read": true
       }
     }
+  },
+  "lsp": {
+    "texlab": {
+      "command": ["texlab"],
+      "extensions": [".tex", ".sty", ".cls", ".bib"],
+      "env": {
+        "RUST_LOG": "info"
+      }
+    },
+    "ltex-ls": {
+      "command": ["ltex-ls"],
+      "extensions": [".tex", ".md"],
+      "env": {
+        "JAVA_OPTS": "-Xmx512m"
+      },
+      "initialization": {
+        "ltex": {
+          "language": "pt-BR",
+          "additionalRules": {
+            "motherTongue": "pt-BR",
+            "languageModel": "ngram"
+          },
+          "disabledRules": {
+            "pt-BR": ["WHITESPACE_RULE"]
+          }
+        }
+      }
+    },
+    "taplo": {
+      "command": ["taplo", "lsp", "stdio"],
+      "extensions": [".toml"]
+    }
   }
 }

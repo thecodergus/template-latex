@@ -5,11 +5,14 @@
     "AGENTS.md",
     ".opencode/agents/latex-author.md",
     ".opencode/references/latex-failure-modes.md",
-    ".opencode/references/writing-quality-guide.md"
+    ".opencode/references/writing-quality-guide.md",
+    ".opencode/references/build-integrity-checklist.md",
+    ".opencode/references/factual-validation-workflow.md",
+    ".opencode/references/systematic-reading-pipeline.md"
   ],
   "agent": {
     "latex-author": {
-      "description": "Especialista em escrita e compilação de artigos LaTeX com template SBC/SBGames e engine Tectonic",
+      "description": "Especialista em artigos LaTeX acadêmicos — template SBC/SBGames, engine Tectonic, normas de escrita científica e integridade de citações",
       "tools": {
         "write": true,
         "edit": true,
@@ -33,6 +36,11 @@
     "clean": {
       "template": "Execute ./clean.sh --all para remover build/ e cache Tectonic. Confirme os diretórios/arquivos removidos.",
       "description": "Limpar build/ e cache Tectonic",
+      "agent": "latex-author"
+    },
+    "validate": {
+      "template": "Execute a validação completa do artigo:\n1. Rode ./check.sh --strict e reporte os 5 gates\n2. Verifique consistência .tex ↔ .bib: extraia todas as chaves de \\cite{} e confirme que cada uma tem entrada em Referencias/referencias.bib\n3. Verifique ausência de \\citeonline{} no .tex\n4. Confirme que labels não estão duplicados\n5. Verifique que sbgames_info.tex não contém placeholders (XXIII, Trilha, Cidade)\nReporte um sumário com status de cada verificação.",
+      "description": "Validação completa do artigo (check.sh + .bib + labels + placeholders)",
       "agent": "latex-author"
     }
   },
